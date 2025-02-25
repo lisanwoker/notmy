@@ -1,127 +1,181 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>나만의 멋진 웹페이지</title>
-  <style>
-    /* 기본 스타일 */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나만의 멋진 웹페이지</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f0f0f0;
-      color: #333;
-    }
+      body {
+        font-family: "Arial", sans-serif;
+        background: #f0f0f0;
+        color: #333;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        padding: 0 10px;
+        opacity: 0; /* 페이지 시작시 투명 */
+        animation: fadeIn 1s forwards; /* 페이지가 서서히 나타나는 효과 */
+      }
 
-    header {
-      background-color: #ff6f61;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
+      header {
+        background-color: #ff6f61;
+        color: white;
+        padding: 20px 0;
+        animation: slideIn 1s ease-out; /* 헤더가 슬라이딩되며 나타나는 효과 */
+      }
 
-    .nav ul {
-      list-style-type: none;
-    }
+      .nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
 
-    .nav ul li {
-      display: inline;
-      margin: 0 15px;
-    }
+      .nav ul li {
+        display: inline;
+        margin: 0 15px;
+      }
 
-    .nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-    }
+      .nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        opacity: 0; /* 텍스트가 처음에는 보이지 않음 */
+        animation: fadeInText 1.5s 0.5s forwards; /* 텍스트가 서서히 나타나는 효과 */
+      }
 
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      background-color: #ff9a8b;
-      color: white;
-    }
+      button {
+        background-color: #ff6f61;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        font-size: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        animation: bounce 2s infinite; /* 버튼이 계속 튕기는 애니메이션 */
+      }
 
-    .hero h2 {
-      font-size: 40px;
-    }
+      button:hover {
+        background-color: #ff4a3d;
+        transform: scale(1.1);
+      }
 
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
+      section {
+        padding: 50px 20px;
+        opacity: 0;
+        animation: fadeInSection 1s 0.5s forwards; /* 섹션이 서서히 나타나는 효과 */
+      }
 
-    button {
-      background-color: #ff6f61;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-    }
+      footer {
+        background-color: #333;
+        color: white;
+        padding: 20px 0;
+      }
 
-    button:hover {
-      background-color: #ff4a3d;
-    }
+      .copybara-image {
+        width: 300px;
+        height: auto;
+        margin-top: 30px;
+        opacity: 0;
+        animation: fadeInImage 1.5s 0.5s forwards; /* 이미지가 서서히 나타나는 효과 */
+      }
 
-    section {
-      padding: 50px 20px;
-      text-align: center;
-    }
+      /* 애니메이션 키프레임 */
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
 
-    footer {
-      background-color: #333;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="nav">
-      <h1>나만의 멋진 웹페이지</h1>
-      <nav>
-        <ul>
-          <li><a href="#home">홈</a></li>
-          <li><a href="#about">소개</a></li>
-          <li><a href="#contact">연락처</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-  <section id="home">
-    <div class="hero">
-      <h2>반가워요!</h2>
-      <p>이곳은 나만의 멋진 웹페이지입니다. 당신도 멋지게 꾸며 보세요!</p>
-      <button onclick="showAlert()">더 알아보기</button>
-    </div>
-  </section>
+      @keyframes fadeInText {
+        to {
+          opacity: 1;
+        }
+      }
 
-  <section id="about">
-    <h2>나에 대해</h2>
-    <p>여기에는 내가 하고 싶은 말들을 적을 수 있어요!</p>
-  </section>
+      @keyframes fadeInSection {
+        to {
+          opacity: 1;
+        }
+      }
 
-  <section id="contact">
-    <h2>연락처</h2>
-    <p>메일: example@email.com</p>
-  </section>
+      @keyframes fadeInImage {
+        to {
+          opacity: 1;
+        }
+      }
 
-  <footer>
-    <p>&copy; 2025 나만의 멋진 웹페이지. All rights reserved.</p>
-  </footer>
+      @keyframes slideIn {
+        from {
+          transform: translateY(-50px);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
 
-  <script>
-    function showAlert() {
-      alert("더 많은 내용을 추가하려면 JavaScript로 멋진 인터랙션을 추가하세요!");
-    }
-  </script>
-</body>
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <h1>나만의 멋진 웹페이지</h1>
+        <nav>
+          <ul>
+            <li><a href="#home" onclick="changeBackgroundColor()">홈</a></li>
+            <li><a href="#about" onclick="changeBackgroundColor()">소개</a></li>
+            <li><a href="#contact" onclick="changeBackgroundColor()">연락처</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="home">
+      <h2>홈</h2>
+      <p>홈 페이지에 오신 것을 환영합니다!</p>
+      <p>여기 **🐒** 이모지가 있어요!</p> <!-- 🐒 이모지가 추가된 부분 -->
+      <img class="copybara-image" src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Capybara.jpg" alt="카피바라" />
+    </section>
+
+    <section id="about">
+      <h2>나에 대해</h2>
+      <p>이성빈멍청이</p> <!-- '이성빈멍청이' 추가 -->
+    </section>
+
+    <section id="contact">
+      <h2>연락처</h2>
+      <p>전화번호: <strong>010-2464-4701</strong></p> <!-- 전화번호 추가 -->
+    </section>
+
+    <footer>
+      <p>&copy; 2025 나만의 멋진 웹페이지. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function changeBackgroundColor() {
+        const colors = [
+          "#ff7e5f", // 부드러운 오렌지색
+          "#feb47b", // 따뜻한 색상
+          "#ff6f61", // 붉은 색상
+          "#ff9a8b", // 핑크톤
+          "#ff4a3d", // 붉은 톤
+        ];
+
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        document.body.style.backgroundColor = randomColor; // 랜덤 색상 적용
+      }
+    </script>
+  </body>
 </html>
